@@ -1,0 +1,319 @@
+/* ==========================================================================
+   The Kernel Keeper — sistema visual de la página del juego.
+   Todo está acotado a .kk-root para no tocar el resto del sitio.
+   ========================================================================== */
+
+.kk-root {
+  --bg: #07090d;
+  --ink: #d7e3ea;
+  --dim: #7f93a1;
+  --cyan: #00e5ff;
+  --ram: #39ff14;
+  --rom: #ffd700;
+  --danger: #ff2a2a;
+  --amber: #ffb000;
+  --win: #c3c7cb;
+  --win-bar: #0b2a8f;
+  --bsod: #0000aa;
+
+  --kk-display: var(--next-font-vt323), 'Courier New', monospace;
+  --kk-text: var(--kk-plex), 'Courier New', monospace;
+
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--kk-text);
+  font-size: 15px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* Alternativa legible (dislexia): reemplaza la mono por una sans */
+.kk-root[data-font='legible'] {
+  --kk-text: var(--kk-legible), system-ui, sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.01em;
+}
+
+/* El sitio aplica Fredoka a todos los títulos; acá mandan las del juego */
+.kk-root :is(h1, h2, h3, h4) {
+  font-family: var(--kk-display);
+  letter-spacing: 0.02em;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.kk-display {
+  font-family: var(--kk-display);
+}
+
+.kk-root ::selection {
+  background: var(--cyan);
+  color: var(--bg);
+}
+
+/* Foco visible en todo lo interactivo */
+.kk-root :is(a, button, input, [tabindex]):focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
+
+/* ---------- Fondo "afuera": grilla de fósforo ---------- */
+.kk-backdrop {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(0, 229, 255, 0.08), transparent 60%),
+    linear-gradient(rgba(57, 255, 20, 0.035) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(90deg, rgba(57, 255, 20, 0.035) 1px, transparent 1px) 0 0 / 32px 32px;
+}
+
+/* ---------- Capa CRT: scanlines + viñeta (desactivable) ---------- */
+.kk-crt {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0,
+      rgba(0, 0, 0, 0) 2px,
+      rgba(0, 0, 0, 0.18) 3px
+    ),
+    radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+.kk-root[data-fx='off'] .kk-crt {
+  display: none;
+}
+
+/* Aberración cromática leve en los títulos CRT */
+.kk-root[data-fx='on'] .kk-chroma {
+  text-shadow:
+    -1px 0 rgba(255, 42, 42, 0.55),
+    1px 0 rgba(0, 229, 255, 0.55),
+    0 0 18px rgba(57, 255, 20, 0.35);
+}
+
+.kk-phosphor {
+  color: var(--ram);
+}
+
+.kk-root[data-fx='on'] .kk-phosphor {
+  text-shadow: 0 0 10px rgba(57, 255, 20, 0.45);
+}
+
+/* ---------- Ventanas "adentro" ---------- */
+.kk-window {
+  background: var(--win);
+  color: #111;
+  border: 2px solid;
+  border-color: #ffffff #3a3d40 #3a3d40 #ffffff;
+  box-shadow:
+    inset -1px -1px 0 #7b7f83,
+    inset 1px 1px 0 #e6e8ea,
+    0 24px 60px -24px rgba(0, 0, 0, 0.9);
+}
+
+.kk-titlebar {
+  background: linear-gradient(90deg, var(--win-bar), #1e4fd1);
+  color: #fff;
+  font-family: var(--kk-display);
+  font-size: 20px;
+  line-height: 1;
+  padding: 4px 4px 4px 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.kk-titlebar[data-tone='danger'] {
+  background: linear-gradient(90deg, #6d0000, var(--danger));
+}
+
+.kk-titlebar[data-tone='amber'] {
+  background: linear-gradient(90deg, #6b4700, var(--amber));
+  color: #111;
+}
+
+.kk-winbtn {
+  width: 22px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--win);
+  color: #111;
+  border: 2px solid;
+  border-color: #ffffff #3a3d40 #3a3d40 #ffffff;
+  font-family: var(--kk-display);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.kk-winbtn:active {
+  border-color: #3a3d40 #ffffff #ffffff #3a3d40;
+}
+
+/* Botón con bisel (dentro de ventanas) */
+.kk-bevel-btn {
+  background: var(--win);
+  color: #111;
+  border: 2px solid;
+  border-color: #ffffff #3a3d40 #3a3d40 #ffffff;
+  box-shadow: inset -1px -1px 0 #7b7f83;
+  cursor: pointer;
+}
+
+.kk-bevel-btn:active,
+.kk-bevel-btn[aria-pressed='true'] {
+  border-color: #3a3d40 #ffffff #ffffff #3a3d40;
+  box-shadow: inset 1px 1px 0 #7b7f83;
+}
+
+/* Campo hundido */
+.kk-inset {
+  background: #fff;
+  border: 2px solid;
+  border-color: #3a3d40 #ffffff #ffffff #3a3d40;
+  box-shadow: inset 1px 1px 0 #7b7f83;
+}
+
+/* Pantalla de terminal (dentro o fuera de ventanas) */
+.kk-terminal {
+  background: #020403;
+  color: var(--ram);
+  border: 2px solid;
+  border-color: #3a3d40 #ffffff #ffffff #3a3d40;
+}
+
+/* Placeholder de arte */
+.kk-art-pending {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 176, 0, 0.12) 0 10px,
+    rgba(255, 176, 0, 0.04) 10px 20px
+  );
+  border: 2px dashed var(--amber);
+  color: var(--amber);
+  font-family: var(--kk-display);
+}
+
+/* ---------- Corrupción (glitch) ---------- */
+@keyframes kk-glitch {
+  0%,
+  100% {
+    transform: none;
+    clip-path: none;
+    text-shadow: none;
+  }
+  12% {
+    transform: translate(-3px, 1px);
+    text-shadow:
+      3px 0 var(--danger),
+      -3px 0 var(--cyan);
+  }
+  24% {
+    transform: translate(3px, -1px) skewX(-6deg);
+    clip-path: inset(10% 0 55% 0);
+  }
+  36% {
+    transform: translate(-2px, 0);
+    clip-path: inset(60% 0 8% 0);
+    text-shadow:
+      -4px 0 var(--danger),
+      4px 0 var(--cyan);
+  }
+  48% {
+    transform: none;
+    clip-path: none;
+  }
+  60% {
+    transform: translate(2px, 1px) skewX(4deg);
+    text-shadow:
+      2px 0 var(--danger),
+      -2px 0 var(--cyan);
+  }
+}
+
+.kk-root[data-fx='on'] .kk-glitch-once {
+  animation: kk-glitch 0.7s steps(2, end) 1;
+}
+
+.kk-root[data-fx='on'] .kk-glitch-hover:hover,
+.kk-root[data-fx='on'] .kk-glitch-hover:focus-visible {
+  animation: kk-glitch 0.6s steps(2, end) 1;
+}
+
+/* Cursor de terminal */
+@keyframes kk-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.kk-caret {
+  display: inline-block;
+  width: 0.55em;
+  height: 1em;
+  background: currentColor;
+  vertical-align: -0.12em;
+  margin-left: 0.15em;
+}
+
+.kk-root[data-fx='on'] .kk-caret {
+  animation: kk-blink 1.1s steps(1, end) infinite;
+}
+
+/* Mira cian del juego, solo dentro del hero */
+.kk-crosshair {
+  cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg fill='none' stroke='%2300e5ff' stroke-width='2'%3E%3Ccircle cx='16' cy='16' r='9'/%3E%3Cpath d='M16 1v8M16 23v8M1 16h8M23 16h8'/%3E%3C/g%3E%3Crect x='15' y='15' width='2' height='2' fill='%2300e5ff'/%3E%3C/svg%3E")
+      16 16,
+    crosshair;
+}
+
+.kk-crosshair :is(a, button) {
+  cursor: pointer;
+}
+
+/* Aviso solo en dispositivos táctiles */
+.kk-touch-only {
+  display: none;
+}
+
+@media (pointer: coarse) {
+  .kk-touch-only {
+    display: block;
+  }
+}
+
+/* Movimiento reducido: sin glitches ni parpadeos, siempre */
+@media (prefers-reduced-motion: reduce) {
+  .kk-root .kk-glitch-once,
+  .kk-root .kk-glitch-hover:hover,
+  .kk-root .kk-caret {
+    animation: none !important;
+  }
+}
+
+/* Dentro de una ventana gris, el placeholder usa un ámbar oscuro para tener contraste */
+.kk-window .kk-art-pending {
+  color: #5c3d00;
+  border-color: #9a6a00;
+}
+
+/* Red de seguridad: si JS no carga, la pantalla de carga se va sola */
+@keyframes kk-boot-out {
+  to {
+    visibility: hidden;
+  }
+}
+
+.kk-boot {
+  animation: kk-boot-out 0s linear 6s forwards;
+}

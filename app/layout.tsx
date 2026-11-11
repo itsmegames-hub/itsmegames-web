@@ -8,6 +8,8 @@ import '@/styles/globals.css';
 
 const languagePreferenceScript = `
   try {
+    const urlLanguage = new URLSearchParams(location.search).get('lang');
+    if (urlLanguage === 'es' || urlLanguage === 'en') localStorage.setItem('itsmegames_lang', urlLanguage);
     const storedLanguage = localStorage.getItem('itsmegames_lang');
     const language = storedLanguage === 'es' || storedLanguage === 'en' ? storedLanguage : 'en';
     document.documentElement.lang = language;
@@ -49,7 +51,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.itsmegames.com/'),
   title: 'ItsMeGames | From Players to Creators',
   description:
-    'Join the family. We are creators, gamers and developers. Discover our projects, meet the people behind them and be part of the chat.',
+    'Join the family. We are creators, gamers and developers. Discover our projects and meet the people behind them.',
   alternates: {
     canonical: '/',
   },
@@ -63,7 +65,7 @@ export const metadata: Metadata = {
     siteName: 'ItsMeGames',
     title: 'ItsMeGames | From Players to Creators',
     description:
-      'Join the family. We are creators, gamers and developers. Discover our projects and be part of the chat.',
+      'Join the family. We are creators, gamers and developers. Discover our projects and meet the people behind them.',
     images: '/embebido2.png',
   },
   twitter: {

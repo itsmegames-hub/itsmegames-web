@@ -1,9 +1,9 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { Sparkles } from 'lucide-react';
-import { motion } from 'motion/react';
+import { useEffect, useRef, useState } from 'react';
+import { motion, useInView } from 'motion/react';
 import { games, type Game } from '@/lib/data/games';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 
@@ -12,107 +12,172 @@ interface GameCardProps {
   index: number;
 }
 
+const VT323 = { fontFamily: 'var(--font-vt323)' };
+
+/** Escribe el texto letra por letra cuando la card entra en pantalla. */
+function useTypewriter(text: string, start: boolean, speed = 35) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!start) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- preferencia del navegador, solo existe tras hidratar
+      setCount(text.length);
+      return;
+    }
+     
+    setCount(0);
+    const id = setInterval(() => {
+      setCount((n) => {
+        if (n >= text.length) {
+          clearInterval(id);
+          return n;
+        }
+        return n + 1;
+      });
+    }, speed);
+    return () => clearInterval(id);
+  }, [text, start, speed]);
+
+  return { shown: text.slice(0, count), done: count >= text.length };
+}
+
 function GameCard({ game, index }: GameCardProps) {
   const { t } = useLanguage();
-  const isLayer8 = game.id === 1;
-  const gameTitle = isLayer8 ? t.games.layer8.title : game.title;
-  const gameStatus = isLayer8 ? t.games.layer8.status : game.status;
-  const gameDesc = isLayer8 ? t.games.layer8.description : game.description;
-  const gameTags = isLayer8 ? t.games.layer8.tags : game.tags;
+  const isKernelKeeper = game.id === 1;
+  const gameTitle = isKernelKeeper ? t.games.layer8.title : game.title;
+  const gameStage = isKernelKeeper ? t.games.layer8.stage : game.stage;
+  const gameTagline = isKernelKeeper ? t.games.layer8.tagline : game.tagline;
+  const gameHook = isKernelKeeper ? t.games.layer8.hook : game.hook;
+  const gameTags = isKernelKeeper ? t.games.layer8.tags : game.tags;
+
+  const screenRef = useRef<HTMLAnchorElement>(null);
+  const inView = useInView(screenRef, { once: true, amount: 0.6 });
+  const tagline = useTypewriter(gameTagline, inView);
+
+  // "THE KERNEL KEEPER" → "THE KERNEL" + "KEEPER" para resaltar la última palabra
+  const titleWords = gameTitle.split(' ');
+  const titleLast = titleWords.pop();
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
-      whileHover={{ y: -10 }}
-      className="relative group cursor-pointer"
+      className="relative group h-full"
     >
-      <Link href={game.url} className="block h-full">
-        <div
-          className={`absolute -inset-0.5 bg-gradient-to-r ${game.color} opacity-10 group-hover:opacity-60 transition duration-500 blur-sm group-hover:blur-md`}
-        ></div>
+      <div className="relative p-5 sm:p-6 bg-white border border-brand-green/10 rounded-3xl h-full flex flex-col shadow-sm group-hover:shadow-[0_18px_40px_-16px_rgba(24,122,52,0.35)] transition-shadow duration-300">
+        {/* --- Monitor --- */}
+        <Link
+          ref={screenRef}
+          href={game.url}
+          aria-label={`${gameTitle} — ${t.games.viewGame}`}
+          className="block rounded-[22px] bg-brand-light border border-brand-green/15 p-3 pb-2 shadow-[inset_0_-3px_0_rgba(0,0,0,0.06)] focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-green/30"
+        >
+          {/* Pantalla CRT */}
+          <div className="relative aspect-[4/3] rounded-[16px] overflow-hidden bg-[#06110a] shadow-[inset_0_0_40px_rgba(0,0,0,0.9)]">
+            {/* Resplandor de fósforo */}
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(57,255,20,0.14),transparent_70%)] opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
+            {/* Scanlines */}
+            <div className="absolute inset-0 pointer-events-none bg-[repeating-linear-gradient(to_bottom,transparent_0,transparent_2px,rgba(0,0,0,0.28)_3px)]" />
+            {/* Viñeta */}
+            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,transparent_55%,rgba(0,0,0,0.65)_100%)]" />
 
-        <div className="relative p-8 bg-white border border-brand-green/10 rounded-2xl h-full flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow duration-300">
-          <div>
-            <div className="flex flex-col mb-8 relative">
-              <div className="absolute top-4 right-4 z-20">
-                <div className="flex flex-col items-end">
-                  <span className="text-[10px] font-mono text-gray-500 tracking-tighter mb-1 uppercase bg-brand-light/80 px-2 py-0.5 rounded">
-                    {t.games.statusLabel}
-                  </span>
-                  <span className="text-[10px] font-mono text-brand-green bg-brand-green/10 px-3 py-1 rounded border border-brand-green/20 animate-pulse backdrop-blur-md">
-                    {gameStatus}
-                  </span>
-                </div>
+            <div className="relative h-full flex flex-col justify-between p-4 sm:p-5" style={VT323}>
+              <div className="flex items-center justify-between text-[#39ff14]/60 text-sm sm:text-base">
+                <span>{'>'} KERNEL_KEEPER.SYS</span>
+                <span className="flex items-center gap-1.5 text-[#39ff14]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#39ff14] animate-pulse" />
+                  {gameStage.toUpperCase()}
+                </span>
               </div>
-              <div className="w-full h-80 rounded-2xl bg-slate-50 text-brand-dark shadow-sm flex items-center justify-center border border-brand-green/10 overflow-hidden group-hover:border-brand-green/30 transition-colors relative">
-                <div className="w-full h-full p-8 transform group-hover:scale-110 transition-transform duration-700">
-                  <Image
-                    src={game.image}
-                    alt={gameTitle}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                {/* Hover overlay with CTA */}
-                <div className="absolute inset-0 bg-brand-dark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
-                  <span className="bg-white/95 text-brand-dark text-xs font-fredoka font-bold py-2.5 px-5 rounded-full shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 tracking-wider">
-                    {t.games.clickToEnter}
-                  </span>
-                </div>
-              </div>
-            </div>
 
-            <h3 className="text-2xl font-fredoka font-bold text-brand-dark mb-3 tracking-wide group-hover:text-glow transition-all">
-              {gameTitle}
-            </h3>
-
-            <p className="text-gray-600 text-sm leading-relaxed mb-6 font-medium font-satoshi">
-              {gameDesc}
-            </p>
-
-            <div className="flex flex-wrap gap-2 mb-8">
-              {gameTags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-[10px] font-mono text-brand-green border border-brand-green/10 bg-brand-green/5 px-2 py-0.5 rounded font-semibold"
+              <div>
+                <h3
+                  className="text-[2.6rem] sm:text-5xl leading-[0.85] text-[#e8f5ec] uppercase [text-shadow:0_0_14px_rgba(57,255,20,0.35)]"
+                  style={VT323}
                 >
-                  #{tag}
-                </span>
-              ))}
+                  {titleWords.join(' ')}
+                  <br />
+                  <span className="text-[#39ff14]">{titleLast}</span>
+                </h3>
+                <p
+                  className="mt-3 text-lg sm:text-xl text-[#ff5a5c] min-h-[1.5em]"
+                  aria-label={gameTagline}
+                >
+                  <span aria-hidden="true">
+                    {tagline.shown}
+                    <span
+                      className={`inline-block w-[0.5em] h-[0.9em] align-[-0.1em] ml-0.5 bg-[#39ff14] ${
+                        tagline.done ? 'animate-pulse' : ''
+                      }`}
+                    />
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
 
-          <div className="flex flex-col gap-4">
-            <div>
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest">
-                  {t.games.compiling}
-                </span>
-                <span className="text-[10px] font-mono text-brand-dark">{game.progress}%</span>
-              </div>
-              <div className="h-1.5 w-full bg-brand-green/5 rounded-full overflow-hidden border border-brand-green/10">
-                <motion.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${game.progress}%` }}
-                  transition={{ duration: 1, delay: 0.5 }}
-                  className={`h-full bg-gradient-to-r ${game.color} shadow-[0_0_15px_rgba(24,122,52,0.2)]`}
-                />
-              </div>
-            </div>
-
-            <div className="flex justify-center items-center gap-2 py-3 px-4 rounded-xl border border-brand-green/20 bg-brand-green/5 text-brand-green group-hover:bg-brand-green group-hover:text-white group-hover:border-brand-green group-hover:shadow-[0_0_15px_rgba(24,122,52,0.2)] transition-all duration-300 font-fredoka font-bold text-xs tracking-wider">
-              <span>{t.games.clickToView}</span>
-              <motion.span
-                animate={{ x: [0, 4, 0] }}
-                transition={{ repeat: Infinity, duration: 1.2, ease: 'easeInOut' }}
-              >
-                →
-              </motion.span>
-            </div>
+          {/* Marco inferior: logo y LED */}
+          <div className="flex items-center justify-between px-1 pt-2">
+            <span className="font-fredoka text-[10px] font-bold tracking-wider text-brand-green/70 uppercase">
+              ItsMeGames
+            </span>
+            <span className="w-2 h-2 rounded-full bg-brand-green shadow-[0_0_6px_rgba(24,122,52,0.8)]" />
           </div>
+        </Link>
+        {/* Pie del monitor */}
+        <div
+          className="mx-auto w-16 h-3 bg-brand-light border-x border-brand-green/10"
+          aria-hidden="true"
+        />
+        <div
+          className="mx-auto w-32 h-2 rounded-full bg-brand-light border border-brand-green/10"
+          aria-hidden="true"
+        />
+
+        {/* --- Info --- */}
+        <p className="mt-5 text-gray-600 text-sm leading-relaxed font-satoshi font-medium text-center">
+          {gameHook}
+        </p>
+
+        <div className="flex flex-wrap justify-center gap-2 mt-3 mb-6">
+          {gameTags.map((tag) => (
+            <span
+              key={tag}
+              className="text-[10px] font-mono text-brand-green border border-brand-green/10 bg-brand-green/5 px-2 py-0.5 rounded font-semibold"
+            >
+              #{tag}
+            </span>
+          ))}
         </div>
-      </Link>
+
+        <div className="mt-auto flex flex-col sm:flex-row gap-3">
+          {game.prototypeUrl && (
+            <a
+              href={game.prototypeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 flex justify-center items-center gap-2 py-3 px-4 rounded-xl border border-brand-green bg-brand-green text-white hover:bg-brand-green/90 hover:shadow-[0_0_15px_rgba(24,122,52,0.3)] transition-all duration-300 font-fredoka font-bold text-xs tracking-wider uppercase"
+            >
+              ▶ {t.games.playPrototype}
+            </a>
+          )}
+          <Link
+            href={game.url}
+            className="flex-1 flex justify-center items-center gap-2 py-3 px-4 rounded-xl border border-brand-green/20 bg-brand-green/5 text-brand-green hover:bg-brand-green hover:text-white hover:border-brand-green transition-all duration-300 font-fredoka font-bold text-xs tracking-wider uppercase"
+          >
+            <span>{t.games.viewGame}</span>
+            <motion.span
+              animate={{ x: [0, 4, 0] }}
+              transition={{ repeat: Infinity, duration: 1.2, ease: 'easeInOut' }}
+            >
+              →
+            </motion.span>
+          </Link>
+        </div>
+      </div>
     </motion.div>
   );
 }
@@ -157,7 +222,7 @@ export default function GamesInDev() {
 
         <div className="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto">
           {games.map((game, index) => (
-            <div key={game.id} className="w-full max-w-[450px]">
+            <div key={game.id} className="w-full max-w-[480px]">
               <GameCard game={game} index={index} />
             </div>
           ))}

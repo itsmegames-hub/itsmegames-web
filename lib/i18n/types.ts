@@ -21,7 +21,9 @@ export interface SponsorTranslation {
 export interface GameTranslation {
   title: string;
   status: string;
-  description: string;
+  stage: string;
+  tagline: string;
+  hook: string;
   tags: string[];
 }
 
@@ -40,6 +42,7 @@ export interface Translations {
     description: string;
     badge: string;
     explore: string;
+    playPrototype: string;
   };
   games: {
     badge: string;
@@ -47,9 +50,8 @@ export interface Translations {
     titleHighlight: string;
     subtitle: string;
     statusLabel: string;
-    compiling: string;
-    clickToEnter: string;
-    clickToView: string;
+    viewGame: string;
+    playPrototype: string;
     layer8: GameTranslation;
   };
   about: {
@@ -74,95 +76,67 @@ export interface Translations {
   footer: {
     founderRole: string;
     emailLabel: string;
-    telLabel: string;
   };
-  layer8: {
+  kernelKeeper: {
+    boot: { lines: string[]; skip: string };
+    ui: {
+      home: string;
+      settingsLabel: string;
+      fx: string;
+      legibleFont: string;
+      on: string;
+      off: string;
+      photosensitivity: string;
+      minimize: string;
+      restore: string;
+      close: string;
+      taskbarLabel: string;
+      memLabel: string;
+      scrollTop: string;
+      artPending: string;
+    };
     hero: {
-      alert: string;
+      status: string;
       tagline: string;
       genre: string;
-      platform: string;
-      target: string;
-      releaseDate: string;
+      play: string;
+      beta: string;
+      mobileNotice: string;
     };
-    controlPanel: {
-      tabs: {
-        concept: string;
-        upgrades: string;
-        npcs: string;
-        specs: string;
-      };
-      concept: {
-        title: string;
-        p1: string;
-        beginningTitle: string;
-        beginningText: string;
-        progressionTitle: string;
-        progressionText: string;
-      };
-      upgrades: {
-        title: string;
-        description: string;
-        permanentTitle: string;
-        permanentList: Array<{ title: string; desc: string }>;
-        glitchesTitle: string;
-        penaltyLabel: string;
-        glitchesList: Array<{ title: string; desc: string; penalty: string }>;
-      };
-      npcs: {
-        title: string;
-        description: string;
-        list: Array<{ name: string; desc: string; isRed?: boolean }>;
-      };
-      specs: {
-        title: string;
-        minTitle: string;
-        recTitle: string;
-        minGpu: string;
-        minStorage: string;
-        recCpu: string;
-        recGpu: string;
-        recStorage: string;
-      };
+    story: { window: string; title: string; lines: string[] };
+    layer7: {
+      window: string;
+      tag: string;
+      title: string;
+      intro: string;
+      hint: string;
+      zones: { id: string; name: string; file: string; line: string }[];
+      hydra: { name: string; file: string; text: string; warning: string };
     };
-    objectives: {
-      titlePre: string;
-      titleHighlight: string;
-      items: Array<{ number: string; title: string; desc: string; isRed?: boolean }>;
-    };
-    osiLayers: {
-      titlePre: string;
-      titleHighlight: string;
-      mapPrompt: string;
-      layers: Array<{
-        tag: string;
-        title: string;
-        desc: string;
-        highlightText: string;
-        isRed?: boolean;
-      }>;
-    };
-    synergies: {
-      titlePre: string;
-      titleHighlight: string;
-      items: Array<{ title: string; desc: string }>;
-    };
+    howToPlay: { window: string; title: string; items: { title: string; desc: string }[] };
+    dilemma: { pre: string; question: string };
+    locked: { window: string; title: string; text: string; detail: string; retry: string };
     signup: {
+      window: string;
       title: string;
-      prompt1: string;
-      prompt2: string;
-      namePlaceholder: string;
-      emailPlaceholder: string;
-      btnSubmit: string;
-      btnSuccess: string;
-      msgSuccess: string;
-      msgError: string;
+      prompt: string;
+      emailLabel: string;
+      placeholder: string;
+      submit: string;
+      loading: string;
+      success: string;
+      invalid: string;
+      error: string;
     };
-    contact: {
+    credits: {
+      window: string;
       title: string;
-      role: string;
-      gdd: string;
+      command: string;
+      members: { name: string; role: string }[];
+      studio: string;
     };
+    footer: { tagline: string; location: string; contactLabel: string; followLabel: string };
+    bsod: { title: string; lines: string[]; dismiss: string };
   };
   switch: {
     ariaLabel: string;

@@ -22,14 +22,14 @@ export async function POST(request: Request) {
   const name = typeof payload.name === 'string' ? payload.name.trim() : '';
   const email = typeof payload.email === 'string' ? payload.email.trim() : '';
 
-  if (!name || !email) {
-    return Response.json({ error: 'Name and email are required.' }, { status: 400 });
+  if (!email) {
+    return Response.json({ error: 'Email is required.' }, { status: 400 });
   }
 
   const signupUrl = process.env.LAYER8_SIGNUP_URL;
 
   if (!signupUrl) {
-    console.error('LAYER8_SIGNUP_URL is not configured. Layer 8 signups cannot be forwarded.');
+    console.error('LAYER8_SIGNUP_URL is not configured. Kernel Keeper signups cannot be forwarded.');
     return Response.json({ error: 'Signup service is unavailable.' }, { status: 500 });
   }
 
@@ -48,13 +48,13 @@ export async function POST(request: Request) {
     });
 
     if (!response.ok) {
-      console.error(`Layer 8 signup upstream responded with status ${response.status}.`);
+      console.error(`Kernel Keeper signup upstream responded with status ${response.status}.`);
       return Response.json({ error: 'Signup service is unavailable.' }, { status: 502 });
     }
 
     return Response.json({ ok: true });
   } catch (error) {
-    console.error('Layer 8 signup upstream request failed.', error);
+    console.error('Kernel Keeper signup upstream request failed.', error);
     return Response.json({ error: 'Signup service is unavailable.' }, { status: 502 });
   }
 }

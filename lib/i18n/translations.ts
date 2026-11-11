@@ -17,23 +17,24 @@ export const translations: Record<Language, Translations> = {
         'Crafting worlds that inspire. We transform our love for gaming into unique interactive experiences.',
       badge: 'Córdoba, Argentina • Indie Studio',
       explore: 'Explore',
+      playPrototype: 'Play the prototype',
     },
     games: {
       badge: 'Idea Lab',
       titlePre: 'Games in ',
       titleHighlight: 'Development',
       subtitle:
-        'Explore the projects taking shape at the core of ItsMeGames. Where code meets raw creativity.',
+        'The projects taking shape at the core of ItsMeGames. Where code meets raw creativity.',
       statusLabel: 'STATUS',
-      compiling: 'Compiling...',
-      clickToEnter: 'CLICK TO ENTER',
-      clickToView: 'CLICK HERE TO VIEW',
+      viewGame: 'View the game',
+      playPrototype: 'Play the prototype',
       layer8: {
-        title: 'LAYER 8',
+        title: 'THE KERNEL KEEPER',
         status: 'IN DEVELOPMENT',
-        description:
-          'A Twin-Stick RogueLite where you must purge the system from an unknown cyber threat.',
-        tags: ['Action', 'RogueLite', 'Cyberpunk'],
+        stage: 'Layer 7 playable',
+        tagline: 'The system is rotten. You are the purge.',
+        hook: 'A tactical twin-stick roguelite on a 90s desktop turned battlefield.',
+        tags: ['Roguelite', 'TwinStick', 'TechHorror'],
       },
     },
     about: {
@@ -43,20 +44,22 @@ export const translations: Record<Language, Translations> = {
         {
           year: '2020',
           title: 'The Beginning',
-          description:
-            'It all began during the pandemic. A shared passion, a streaming channel to connect with fellow gamers.',
+          description: 'Born during the pandemic as a shared hobby and a streaming channel.',
         },
         {
           year: '2021',
           title: 'Community & Streaming',
-          description:
-            'The itsmegames_ Twitch channel became a vibrant hub. Bonding with our audience sparked the vision to go further.',
+          description: 'The Twitch channel itsmegames_ becomes a meeting point.',
         },
         {
-          year: '2026+',
-          title: 'Studio Evolution',
-          description:
-            'We realized our ultimate passion is building. We evolved into an indie game studio, ready to make our mark on the industry.',
+          year: '2026',
+          title: 'The Studio Is Born',
+          description: 'ItsMeGames becomes an indie studio and starts The Kernel Keeper.',
+        },
+        {
+          year: '2026',
+          title: 'First Playable Prototype',
+          description: 'Layer 7 of The Kernel Keeper is now playable in the browser.',
         },
       ],
     },
@@ -74,12 +77,11 @@ export const translations: Record<Language, Translations> = {
         Maxi: {
           name: 'Maxi',
           role: 'Legal & Community Manager',
-          description:
-            'Protects our legal flank and keeps the community enthusiasm thriving.',
+          description: 'Protects our legal flank and keeps the community enthusiasm thriving.',
         },
         Azul: {
           name: 'Azul',
-          role: 'UX Lead & Game Developer',
+          role: 'UI/UX designer, web developer & QA',
           description:
             'Interface architect. Blending complex system logic with stunning visual aesthetics.',
         },
@@ -99,6 +101,12 @@ export const translations: Record<Language, Translations> = {
           name: 'Nico',
           role: 'Sound Design',
           description: 'Tech geek, Techno producer, DJ and Developer. I am IronMan.',
+        },
+        Valen: {
+          name: 'Valen',
+          role: 'Level Designer & Gameplay Programmer',
+          description:
+            'Level architect. Builds the worlds, programs the gameplay, and shapes the game concepts.',
         },
       },
     },
@@ -127,196 +135,192 @@ export const translations: Record<Language, Translations> = {
     footer: {
       founderRole: 'FOUNDER',
       emailLabel: 'EMAIL:',
-      telLabel: 'TEL:',
     },
-    layer8: {
+    kernelKeeper: {
+      boot: {
+        lines: [
+          'VANGUARD BIOS v4.51 · (C) 1995 Vanguard Mainframes',
+          'Base memory: 640K OK',
+          'USB device detected: KERNEL_KEEPER.SYS',
+          'Decrypting environment…',
+          'Starting purge protocol.',
+        ],
+        skip: 'Press any key or click to skip',
+      },
+      ui: {
+        home: 'ItsMeGames',
+        settingsLabel: 'Display options',
+        fx: 'CRT',
+        legibleFont: 'Readable font',
+        on: 'ON',
+        off: 'OFF',
+        photosensitivity:
+          'Photosensitivity notice: this page has brief visual distortions. You can turn them off with the CRT button.',
+        minimize: 'Minimize',
+        restore: 'Restore',
+        close: 'Close',
+        taskbarLabel: 'Minimized windows',
+        memLabel: 'MEM',
+        scrollTop: 'Back to top',
+        artPending: 'ART PENDING',
+      },
       hero: {
-        alert: '[ALERT: MANUAL REBOOT REQUIRED]',
-        tagline: '"THE SYSTEM IS ROTTEN. YOU ARE THE PURGE."',
-        genre: 'GENRE: TWIN-STICK ROGUELITE / BULLET HEAVEN',
-        platform: 'PLATFORM: PC (STEAM)',
-        target: 'TARGET: TEEN / YOUNG ADULT',
-        releaseDate: 'RELEASE: Q4 2027',
+        status: 'IN DEVELOPMENT · LAYER 7 PLAYABLE',
+        tagline: 'The system is rotten. You are the purge.',
+        genre: 'Tactical twin-stick roguelite shooter · Isometric · PC (Steam)',
+        play: 'Play the prototype',
+        beta: 'Join the beta',
+        mobileNotice: 'The prototype needs a keyboard and mouse. Open it on a computer.',
       },
-      controlPanel: {
-        tabs: {
-          concept: 'CONCEPT & LORE',
-          upgrades: 'UPGRADES & GLITCHES',
-          npcs: 'NPC SYSTEM',
-          specs: 'PC SPECS',
-        },
-        concept: {
-          title: 'HIGH CONCEPT & STORY PROTOCOL',
-          p1: 'A corporate supercomputer has entered global crisis. You are THE KERNEL KEEPER, a ruthless protocol of absolute last resort. Your mission is not to clean viruses, it is to execute everything that moves. You must descend physically through the 7 Layers of the OSI Model, from Graphical User Interface down to raw Hardware, to force a manual reboot before the system melts down.',
-          beginningTitle: 'The Beginning:',
-          beginningText:
-            'We begin in the physical world. A short cinematic shows a server room at Vanguard Mainframes under red alert. A desperate technician breaks emergency glass and connects the KERNEL Keeper USB drive. The camera zooms deep into CRT monitor pixels and we are transported into the software.',
-          progressionTitle: 'Progression and Revelation:',
-          progressionText:
-            'The player advances cleansing different layers of the OSI Model. Upon reaching the absolute core, the truth is revealed: the massive infection was not an external breach, but direct human negligence by the User/Operator (Layer 8). The player must make a final decision that concludes the run and impacts the meta-game: format and perish or embrace corruption.',
-        },
-        upgrades: {
-          title: 'CORRUPTION SYSTEM (GLITCHES) & CORE UPGRADES',
-          description:
-            'The game balances permanent meta-progression core upgrades with volatile glitches granting devastating firepower in exchange for severe mechanical or visual penalties.',
-          permanentTitle: 'PERMANENT PROGRESSION (CORE)',
-          permanentList: [
-            { title: 'RAM Expansion:', desc: 'Permanently adds an extra green memory block.' },
-            { title: 'Optimal Routing:', desc: 'Passively increases movement speed.' },
-            { title: 'Firewall Protocol:', desc: 'Temporary shield absorbing 1 free hit.' },
-            { title: 'Active Cooling:', desc: 'Reduces evasive Dash cooldowns.' },
-          ],
-          glitchesTitle: 'VOLATILE GLITCHES (CORRUPTION)',
-          penaltyLabel: 'Penalty:',
-          glitchesList: [
-            { title: 'Overclock:', desc: 'Extreme fire rate.', penalty: 'Screen flickers.' },
-            {
-              title: 'Memory Leak:',
-              desc: 'Doubled damage.',
-              penalty: 'Dash loses invulnerability frames.',
-            },
-            {
-              title: 'Vampire Protocol:',
-              desc: 'Healing upon physical Dash.',
-              penalty: 'Max health reduced to 3 blocks.',
-            },
-            {
-              title: 'Fragmentation:',
-              desc: 'Massive scatter spread.',
-              penalty: '-20% movement speed.',
-            },
-          ],
-        },
-        npcs: {
-          title: 'SYSTEM PARTNERS AND THREATS',
-          description:
-            'The narrative unfolds through diegetic lore and rapid interactions with OS utilities and assistants that survived the infection.',
-          list: [
-            {
-              name: 'Diag.exe (Diagnostic Assistant)',
-              desc: "A clean native file providing reconnaissance and system lore. Diag.exe fears the Keeper's ruthless methods.",
-            },
-            {
-              name: 'Merchant.bat (Digital Peddler)',
-              desc: 'A batch processor trafficking code fragments, vending repair patches in exchange for Crypto-Data.',
-            },
-            {
-              name: 'Clip.exe (The Grudgeful Assistant)',
-              desc: 'A parody of classic office paperclip assistants, resentful of being archived, presenting logical hurdles and tests.',
-              isRed: true,
-            },
-            {
-              name: 'Archive.rar (The Eternal Archive)',
-              desc: 'Log and database keeper allowing you to inspect your Run meta-progression history.',
-            },
-          ],
-        },
-        specs: {
-          title: 'TECHNICAL HARDWARE REQUIREMENTS (PC)',
-          minTitle: '[MINIMUM REQUIREMENTS]',
-          recTitle: '[RECOMMENDED REQUIREMENTS]',
-          minGpu: 'GPU: Integrated Graphics (DX11)',
-          minStorage: 'Storage: 2 GB Free',
-          recCpu: 'CPU: AMD Ryzen 5 5600GT or similar',
-          recGpu: 'GPU: NVIDIA RTX 5060 or similar',
-          recStorage: 'Storage: 2 GB Free (SSD)',
+      story: {
+        window: 'RECOVERED_LOG.TXT',
+        title: 'The setup',
+        lines: [
+          'A cyberterrorist virus threatens to shut down the global network. The infected system belongs to **Vanguard Mainframes**.',
+          'As a last resort, a technician plugs in an emergency USB drive: **the KERNEL Keeper**, a purge protocol.',
+          "Your mission starts on the desktop. But Vanguard is hiding something… and the deeper you go, the more you'll uncover.",
+        ],
+      },
+      layer7: {
+        window: 'DESKTOP · LAYER 7',
+        tag: 'LAYER 7 // APPLICATION',
+        title: 'The desktop',
+        intro: 'The first layer is a 90s desktop turned battlefield. Every program is a zone.',
+        hint: 'No need to double-click. One click will do.',
+        zones: [
+          {
+            id: 'paint',
+            name: 'Paint program',
+            file: 'DRAW.EXE',
+            line: "The canvas is alive. It doesn't like visitors.",
+          },
+          {
+            id: 'sheet',
+            name: 'Spreadsheet',
+            file: 'SHEET.EXE',
+            line: 'Cells, formulas, and something moving between the rows.',
+          },
+          {
+            id: 'media',
+            name: 'Media player',
+            file: 'PLAYER.EXE',
+            line: "The equalizer is pulsing. That's not music.",
+          },
+          {
+            id: 'pinball',
+            name: 'Desktop pinball',
+            file: 'PINBALL.EXE',
+            line: 'Lights, bumpers and zero mercy.',
+          },
+          {
+            id: 'chat',
+            name: 'Instant messenger',
+            file: 'MESSENGER.EXE',
+            line: 'You have 99+ unread messages. None of them are from a human.',
+          },
+        ],
+        hydra: {
+          name: 'Hydra Browser',
+          file: 'HYDRA.EXE',
+          text: 'A mass of windows that never stops opening tabs.',
+          warning: 'THREAT DETECTED',
         },
       },
-      objectives: {
-        titlePre: 'AUDIT ',
-        titleHighlight: 'OBJECTIVES',
+      howToPlay: {
+        window: 'HOW_TO_PLAY.HLP',
+        title: 'How it plays',
         items: [
           {
-            number: '01. FRANTIC COMBAT',
-            title: '01. FRANTIC COMBAT',
-            desc: 'Survive intense tactical Twin-Stick combat in isometric perspective where every hit consumes memory blocks and mistakes cost real non-regenerative health.',
-            isRed: true,
+            title: 'Frantic combat.',
+            desc: 'High-pressure arenas, breakable cover and terrain that fights against you. Health never regenerates.',
           },
           {
-            number: '02. LEARN FROM CORRUPTION',
-            title: '02. LEARN FROM CORRUPTION',
-            desc: 'Master the Glitch System. Embrace chromatic glitches and severe visual screen distortions in exchange for exponentially expanding your tactical firepower.',
+            title: 'One Glitch at a time.',
+            desc: 'Corruptions that grant massive power at a price. Your memory can only hold one.',
           },
           {
-            number: '03. CRT TECH-HORROR AESTHETIC',
-            title: '03. CRT TECH-HORROR AESTHETIC',
-            desc: 'Immerse yourself in a dark 90s server mainframe atmosphere, flickering green phosphor monitors, and Vanguard Mainframes digital white noise.',
+            title: 'Risk it or extract.',
+            desc: 'Before the boss you can bail out with your progress, or go all in.',
+          },
+          {
+            title: '90s tech-horror.',
+            desc: 'CRT monitors, green phosphor and original synthwave.',
           },
         ],
       },
-      osiLayers: {
-        titlePre: 'THE CONFLICT: ',
-        titleHighlight: 'THE OSI LAYERS',
-        mapPrompt: 'OSI MODEL MAP (vertical descent)',
-        layers: [
-          {
-            tag: 'LAYER 7 (APPLICATION) • DIGITAL HEADQUARTERS',
-            title: 'THE HYDRA BROWSER',
-            highlightText: 'FAT32 Scattergun',
-            desc: 'A monstrous, invasive browser. Close one tab (head) and two more sprout automatically. Collect the heavy FAT32 Scattergun shotgun from the system downloads directory.',
-            isRed: true,
-          },
-          {
-            tag: 'LAYER 6 (PRESENTATION) • ENCRYPTION MAZES',
-            title: 'RSA-PIERCER GUN',
-            highlightText: 'RSA Piercer',
-            desc: 'A labyrinth of encrypted data. Deploy the RSA Piercer emitter to unleash a sustained energy beam penetrating layered defenses (slows mobility by 40% while charging).',
-          },
-          {
-            tag: 'LAYER 5 (SESSION) • DIAL-UP ACCESS',
-            title: '56K DIAL-UP CANNON',
-            highlightText: '56k',
-            desc: 'Transmission synchronization sector. The 56k cannon fires erratic lag orbs, inflicting massive 2-second stun from packet loss on malicious malware.',
-          },
-          {
-            tag: 'LAYER 4 (TRANSPORT) • FIBER STREAM',
-            title: 'THE PACKET WYRM',
-            highlightText: 'MTU Launcher',
-            desc: 'A colossal optical-fiber serpent gliding beneath packet stacks. Fire the MTU Launcher, heavy artillery rebounding off walls with a concussive shockwave.',
-          },
-          {
-            tag: 'LAYER 1 (PHYSICAL) • THE SILICON CRADLE',
-            title: 'KERNEL PANIC',
-            highlightText: 'Thermal Flow Cannon',
-            desc: 'The boiling silicon core. Confront Kernel Panic, the ultimate anomaly simulating Blue Screens of Death and hardware crashes. Deploy the Thermal Flow Cannon before meltdown.',
-            isRed: true,
-          },
-        ],
+      dilemma: {
+        pre: 'Every Glitch you absorb makes you more powerful. And more corrupt.',
+        question: 'Will you die a hero... or live long enough to become the villain?',
       },
-      synergies: {
-        titlePre: 'CODE SYNERGIES ',
-        titleHighlight: '(BUILDS)',
-        items: [
-          {
-            title: 'IGNIS VAMPIRE',
-            desc: 'Combine Vampire Protocol with the Dash flame trail. Scorch and siphon health passively from cyan-burned foes while sprinting.',
-          },
-          {
-            title: 'FRACTAL SHOTGUN',
-            desc: 'Combine the MAC-Breaker Shotgun with Disk Fragmentation. Drastically boosts pellet spread, filling the entire isometric arena with projectiles.',
-          },
-          {
-            title: 'PHANTOM SNIPER',
-            desc: 'Combine the long-range Traceroute Rifle with Dash holographic decoys. Deploy a dummy drawing fire while charging pinpoint long-range sniper shots.',
-          },
-        ],
+      locked: {
+        window: 'DRIVE D:\\',
+        title: 'DRIVE NOT MOUNTED — Restricted access',
+        text: 'The deeper layers of the system: coming soon.',
+        detail: 'ENCRYPTED SECTORS · READ DENIED',
+        retry: 'Retry',
       },
       signup: {
-        title: 'ACCESS PROTOCOL',
-        prompt1:
-          'Leave your email to register for the upcoming closed beta and support ongoing development.',
-        prompt2: 'Injecting registration protocol into Vanguard Mainframes...',
-        namePlaceholder: 'FULL NAME',
-        emailPlaceholder: 'USER@SECTOR.COM',
-        btnSubmit: 'Send Data',
-        btnSuccess: 'Registered',
-        msgSuccess: 'ACCESS GRANTED. You have been added to the priority roster.',
-        msgError: 'SYSTEM ERROR. Please retry later.',
+        window: 'REGISTER.EXE',
+        title: 'Closed beta',
+        prompt: 'Leave your email to sign up for the upcoming closed beta and support development.',
+        emailLabel: 'Your email',
+        placeholder: 'user@sector.com',
+        submit: '> REGISTER USER',
+        loading: 'Decrypting environment…',
+        success: "User registered. We'll let you know when the beta opens.",
+        invalid: "ERROR 0x0E: that email isn't valid. Check it and try again.",
+        error: "ERROR 0x1F: couldn't reach the server. Please try again later.",
       },
-      contact: {
-        title: 'AUDIT CONTACT',
-        role: 'Director / Game Design',
-        gdd: 'GDD VERSION: 1.0 (Published: May 12, 2026)',
+      credits: {
+        window: 'CREDITS.LOG',
+        title: 'Team & studio',
+        command: '> read CREDITS.LOG',
+        members: [
+          {
+            name: 'Bruno Aresu Barella',
+            role: 'Executive producer, creative director, game design, economy, characters and narrative.',
+          },
+          {
+            name: 'Maxi Gentili',
+            role: 'Community Manager.',
+          },
+          {
+            name: 'Azul Talavera',
+            role: 'Interface design (diegetic UI/UX), web development and QA.',
+          },
+          {
+            name: 'Francisco Merlini',
+            role: 'Tech lead, C# programming (Unity URP) and core systems architecture.',
+          },
+          {
+            name: 'Valen Bongiorno',
+            role: 'Level design, level architecture, gameplay programming and concepts.',
+          },
+          {
+            name: 'Lucas Segovia',
+            role: 'Art direction, 3D modeling, animation, cel-shading and promotional art.',
+          },
+          {
+            name: 'Nicolás Bugedo',
+            role: 'Sound design, diegetic audio and original soundtrack.',
+          },
+        ],
+        studio: 'A game by ItsMeGames · Córdoba, Argentina',
+      },
+      footer: {
+        tagline: 'From Players to Creators',
+        location: 'Córdoba, Argentina',
+        contactLabel: 'Contact',
+        followLabel: 'Follow us',
+      },
+      bsod: {
+        title: 'KERNEL_KEEPER.SYS',
+        lines: [
+          'KERNEL_KEEPER.SYS stopped responding. Stop code: 0xC0FFEE.',
+          "Relax, you didn't break anything. This is the ItsMeGames team saying hi.",
+          'Thanks for digging this deep. The deeper layers are still compiling.',
+        ],
+        dismiss: 'Press any key to return to the system _',
       },
     },
     switch: {
@@ -346,46 +350,50 @@ export const translations: Record<Language, Translations> = {
         'Creando mundos que inspiran. Transformamos nuestra pasión por jugar en experiencias interactivas únicas.',
       badge: 'Córdoba, Argentina • Estudio Indie',
       explore: 'Explorar',
+      playPrototype: 'Jugar el prototipo',
     },
     games: {
       badge: 'Laboratorio de Ideas',
       titlePre: 'Juegos en ',
       titleHighlight: 'Desarrollo',
       subtitle:
-        'Explora los proyectos que están tomando forma en el núcleo de ItsMeGames. Donde el código se encuentra con la creatividad pura.',
+        'Los proyectos que están tomando forma en el corazón de ItsMeGames. Donde el código se cruza con la creatividad.',
       statusLabel: 'ESTADO',
-      compiling: 'Compilando...',
-      clickToEnter: 'CLICK PARA ENTRAR',
-      clickToView: 'CLICK AQUÍ PARA VER',
+      viewGame: 'Ver el juego',
+      playPrototype: 'Jugar el prototipo',
       layer8: {
-        title: 'LAYER 8',
+        title: 'THE KERNEL KEEPER',
         status: 'EN DESARROLLO',
-        description:
-          'Un Twin-Stick RogueLite donde debes purgar el sistema de una amenaza desconocida.',
-        tags: ['Action', 'RogueLite', 'Cyberpunk'],
+        stage: 'Capa 7 jugable',
+        tagline: 'El sistema está podrido. Vos sos la purga.',
+        hook: 'Roguelite twin-stick táctico en un escritorio de los 90 convertido en campo de batalla.',
+        tags: ['Roguelite', 'TwinStick', 'TechHorror'],
       },
     },
     about: {
       title: 'Nuestra Evolución',
-      subtitle: 'El viaje de un hobby a un estudio creativo.',
+      subtitle: 'De un hobby de fin de semana a un estudio creativo de videojuegos.',
       milestones: [
         {
           year: '2020',
-          title: 'El Inicio',
+          title: 'El comienzo',
           description:
-            'Todo comenzó durante la pandemia. Un hobby, un canal de streaming para compartir nuestra pasión por los videojuegos.',
+            'Nace durante la pandemia como un pasatiempo compartido y un canal de streaming.',
         },
         {
           year: '2021',
-          title: 'Comunidad & Streaming',
-          description:
-            'El canal de Twitch itsmegames_ se convirtió en un punto de encuentro. La conexión con la audiencia nos inspiró a ir más allá.',
+          title: 'Comunidad y streaming',
+          description: 'El canal de Twitch itsmegames_ se vuelve punto de encuentro.',
         },
         {
-          year: '2026+',
-          title: 'Evolución a Estudio',
-          description:
-            'Descubrimos que nuestra verdadera pasión es crear. Nacimos como empresa de desarrollo de videojuegos, listos para dejar nuestra marca en la industria.',
+          year: '2026',
+          title: 'Nace el estudio',
+          description: 'ItsMeGames se convierte en un estudio indie y arranca The Kernel Keeper.',
+        },
+        {
+          year: '2026',
+          title: 'Primer prototipo jugable',
+          description: 'La Capa 7 de The Kernel Keeper ya se puede jugar en el navegador.',
         },
       ],
     },
@@ -403,12 +411,11 @@ export const translations: Record<Language, Translations> = {
         Maxi: {
           name: 'Maxi',
           role: 'Legal & Community Manager',
-          description:
-            'Cuida nuestras espaldas legales y mantiene viva la llama de la comunidad.',
+          description: 'Cuida nuestras espaldas legales y mantiene viva la llama de la comunidad.',
         },
         Azul: {
           name: 'Azul',
-          role: 'UX Lead & Game Developer',
+          role: 'UI/UX designer, web developer & QA',
           description:
             'Arquitecta de interfaces. Fusiona los requisitos del sistema con un diseño visual impactante.',
         },
@@ -428,6 +435,12 @@ export const translations: Record<Language, Translations> = {
           name: 'Nico',
           role: 'Sound Design',
           description: 'Gordo compu, productor Techno, DJ y Developer. I am IronMan.',
+        },
+        Valen: {
+          name: 'Valen',
+          role: 'Level Designer & Gameplay Programmer',
+          description:
+            'Arquitecto de niveles. Diseña los mundos, programa el gameplay y le da forma a los conceptos del juego.',
         },
       },
     },
@@ -456,208 +469,194 @@ export const translations: Record<Language, Translations> = {
     footer: {
       founderRole: 'FOUNDER',
       emailLabel: 'EMAIL:',
-      telLabel: 'TEL:',
     },
-    layer8: {
+    kernelKeeper: {
+      boot: {
+        lines: [
+          'VANGUARD BIOS v4.51 · (C) 1995 Vanguard Mainframes',
+          'Memoria base: 640K OK',
+          'Dispositivo USB detectado: KERNEL_KEEPER.SYS',
+          'Desencriptando entorno…',
+          'Iniciando protocolo de purga.',
+        ],
+        skip: 'Presioná una tecla o hacé clic para saltear',
+      },
+      ui: {
+        home: 'ItsMeGames',
+        settingsLabel: 'Opciones de pantalla',
+        fx: 'CRT',
+        legibleFont: 'Fuente legible',
+        on: 'ON',
+        off: 'OFF',
+        photosensitivity:
+          'Aviso de fotosensibilidad: esta página tiene distorsiones visuales breves. Podés apagarlas con el botón CRT.',
+        minimize: 'Minimizar',
+        restore: 'Restaurar',
+        close: 'Cerrar',
+        taskbarLabel: 'Ventanas minimizadas',
+        memLabel: 'MEM',
+        scrollTop: 'Volver arriba',
+        artPending: 'ARTE PENDIENTE',
+      },
       hero: {
-        alert: '[ALERTA: REINICIO MANUAL REQUERIDO]',
-        tagline: '"EL SISTEMA ESTÁ PODRIDO. VOS SOS LA PURGA."',
-        genre: 'GÉNERO: TWIN-STICK ROGUELITE / BULLET HEAVEN',
-        platform: 'PLATAFORMA: PC (STEAM)',
-        target: 'TARGET: TEEN / YOUNG ADULT',
-        releaseDate: 'FECHA: Q4 2027',
+        status: 'EN DESARROLLO · CAPA 7 JUGABLE',
+        tagline: 'El sistema está podrido. Vos sos la purga.',
+        genre: 'Roguelite twin-stick shooter táctico · Isométrico · PC (Steam)',
+        play: 'Jugar el prototipo',
+        beta: 'Anotarme a la beta',
+        mobileNotice: 'El prototipo necesita teclado y mouse. Abrilo desde una compu.',
       },
-      controlPanel: {
-        tabs: {
-          concept: 'CONCEPTO Y LORE',
-          upgrades: 'MEJORAS Y GLITCHES',
-          npcs: 'SISTEMA DE NPCs',
-          specs: 'REQUISITOS PC',
-        },
-        concept: {
-          title: 'PROTOCOLO HIGH CONCEPT & HISTORIA',
-          p1: 'Una supercomputadora corporativa ha entrado en crisis global. Vos sos THE KERNEL KEEPER, un protocolo de defensa brutal de última instancia. Tu misión no es limpiar virus, es ejecutar todo lo que se mueva. Debes descender físicamente a través de las 7 Capas del Modelo OSI, desde la Interfaz Gráfica hasta el Hardware puro, para forzar un reinicio manual antes de que el sistema se funda.',
-          beginningTitle: 'El Comienzo:',
-          beginningText:
-            'Empezamos en el mundo físico. Una cinemática corta muestra una sala de servidores de Vanguard Mainframes en alerta roja. Un técnico desesperado rompe un cristal de emergencia y conecta el pendrive del KERNEL Keeper. La cámara hace zoom hacia los píxeles del monitor CRT y somos transportados al software.',
-          progressionTitle: 'El Progreso y Revelación:',
-          progressionText:
-            'El jugador avanza limpiando las distintas capas del Modelo OSI. Al llegar al núcleo absoluto, se revela la verdad: la infección masiva no fue un ataque externo, sino una negligencia directa del Usuario/Técnico (La Capa 8). El jugador debe tomar una decisión final que cerrará la run y afectará el meta-juego: formatear y morir o aceptar su corrupción.',
-        },
-        upgrades: {
-          title: 'SISTEMA DE CORRUPCIÓN (GLITCHES) Y MEJORAS DE NÚCLEO',
-          description:
-            'El juego equilibra mejoras permanentes del núcleo de meta-progreso con glitches temporales que otorgan un poder devastador a cambio de un costo mecánico o visual severo.',
-          permanentTitle: 'PROGRESIÓN PERMANENTE (NÚCLEO)',
-          permanentList: [
-            {
-              title: 'Ampliación de RAM:',
-              desc: 'Añade un bloque de memoria verde extra permanentemente.',
-            },
-            {
-              title: 'Enrutamiento óptimo:',
-              desc: 'Incrementa la velocidad de movimiento de forma pasiva.',
-            },
-            {
-              title: 'Protocolo Firewall:',
-              desc: 'Escudo temporal de 1 impacto gratuito.',
-            },
-            {
-              title: 'Refrigeración:',
-              desc: 'Reduce tiempos de recarga del Dash evasivo.',
-            },
-          ],
-          glitchesTitle: 'GLITCHES TEMPORALES (CORRUPCIÓN)',
-          penaltyLabel: 'Penalización:',
-          glitchesList: [
-            { title: 'Overclock:', desc: 'Cadencia extrema.', penalty: 'Pantalla parpadea.' },
-            {
-              title: 'Fuga de Memoria:',
-              desc: 'Daño duplicado.',
-              penalty: 'Dash sin frames de invulnerabilidad.',
-            },
-            {
-              title: 'Protocolo Vampiro:',
-              desc: 'Curación por Dash físico.',
-              penalty: 'Vida máxima reducida a 3 bloques.',
-            },
-            {
-              title: 'Fragmentación:',
-              desc: 'Dispersión masiva.',
-              penalty: '-20% velocidad de movimiento.',
-            },
-          ],
-        },
-        npcs: {
-          title: 'SOCIOS Y ENEMIGOS DEL SISTEMA',
-          description:
-            'La historia se cuenta mediante lore diegético e interacciones rápidas con utilidades y asistentes del sistema operativo que sobrevivieron a la infección.',
-          list: [
-            {
-              name: 'Diag.exe (Asistente de Diagnóstico)',
-              desc: 'Un archivo nativo y limpio que te provee reconocimiento e información del lore. Diag.exe teme a los métodos implacables del Keeper.',
-            },
-            {
-              name: 'Merchant.bat (Buhonero Digital)',
-              desc: 'Un procesador por lotes que trafica con fragmentos de código, vendiendo parches de reparación a cambio de Cripto-Datos.',
-            },
-            {
-              name: 'Clip.exe (El Asistente Rencoroso)',
-              desc: 'Una parodia de asistente clásico de oficina, resentido por haber sido archivado, que te pondrá pruebas y trabas lógicas.',
-              isRed: true,
-            },
-            {
-              name: 'Archive.rar (El Archivo Eterno)',
-              desc: 'Almacenador de logs y bases de datos que te permite revisar el meta-progreso de tus Runs.',
-            },
-          ],
-        },
-        specs: {
-          title: 'REQUISITOS TÉCNICOS DE HARDWARE (PC)',
-          minTitle: '[REQUISITOS MÍNIMOS]',
-          recTitle: '[REQUISITOS RECOMENDADOS]',
-          minGpu: 'GPU: Gráficos integrados (DX11)',
-          minStorage: 'Almacenamiento: 2 GB libres',
-          recCpu: 'CPU: AMD Ryzen 5 5600GT o similar',
-          recGpu: 'GPU: NVIDIA RTX 5060 o similar',
-          recStorage: 'Almacenamiento: 2 GB libres (SSD)',
+      story: {
+        window: 'REGISTRO_RECUPERADO.TXT',
+        title: 'El planteo',
+        lines: [
+          'Un virus ciberterrorista amenaza con apagar la red global. El sistema infectado pertenece a **Vanguard Mainframes**.',
+          'Como último recurso, un técnico conecta un pendrive de emergencia: **el KERNEL Keeper**, un protocolo de purga.',
+          'Tu misión empieza en el escritorio. Pero Vanguard oculta algo… y cuanto más bajes, más vas a descubrir.',
+        ],
+      },
+      layer7: {
+        window: 'ESCRITORIO · CAPA 7',
+        tag: 'CAPA 7 // APLICACIÓN',
+        title: 'El escritorio',
+        intro:
+          'La primera capa es un escritorio de los 90 convertido en campo de batalla. Cada programa es una zona.',
+        hint: 'No hace falta doble clic. Con uno alcanza.',
+        zones: [
+          {
+            id: 'paint',
+            name: 'Programa de dibujo',
+            file: 'DIBUJO.EXE',
+            line: 'El lienzo está vivo. Y no le gustan las visitas.',
+          },
+          {
+            id: 'sheet',
+            name: 'Planilla de cálculo',
+            file: 'PLANILLA.EXE',
+            line: 'Celdas, fórmulas y algo que se mueve entre las filas.',
+          },
+          {
+            id: 'media',
+            name: 'Reproductor multimedia',
+            file: 'REPRODUCTOR.EXE',
+            line: 'El ecualizador late. No es música.',
+          },
+          {
+            id: 'pinball',
+            name: 'Pinball de escritorio',
+            file: 'PINBALL.EXE',
+            line: 'Luces, rebotes y cero piedad.',
+          },
+          {
+            id: 'chat',
+            name: 'Mensajero instantáneo',
+            file: 'MENSAJERO.EXE',
+            line: 'Tenés 99+ mensajes sin leer. Ninguno es de un humano.',
+          },
+        ],
+        hydra: {
+          name: 'Hydra Browser',
+          file: 'HYDRA.EXE',
+          text: 'Una masa de ventanas que no deja de abrir pestañas.',
+          warning: 'AMENAZA DETECTADA',
         },
       },
-      objectives: {
-        titlePre: 'OBJETIVOS DE ',
-        titleHighlight: 'AUDITORÍA',
+      howToPlay: {
+        window: 'COMO_SE_JUEGA.HLP',
+        title: 'Cómo se juega',
         items: [
           {
-            number: '01. COMBATE FRENÉTICO',
-            title: '01. COMBATE FRENÉTICO',
-            desc: 'Sobrevive a un combate Twin-Stick táctico e intenso en vista isométrica donde cada impacto consume bloques lógicos de memoria y cada error te cuesta vida real no regenerable.',
-            isRed: true,
+            title: 'Combate frenético.',
+            desc: 'Arenas de presión máxima, coberturas que se rompen y un terreno que juega en tu contra. La salud no se regenera.',
           },
           {
-            number: '02. APRENDE DE LA CORRUPCIÓN',
-            title: '02. APRENDE DE LA CORRUPCIÓN',
-            desc: 'Domina el Sistema de Glitches. Asume fallos cromáticos y distorsiones visuales severas en tu pantalla a cambio de expandir exponencialmente tu arsenal táctico de fuego.',
+            title: 'Un solo Glitch a la vez.',
+            desc: 'Corrupciones que te dan un poder enorme a cambio de un precio. Tu memoria solo soporta una.',
           },
           {
-            number: '03. ESTÉTICA CRT TECH-HORROR',
-            title: '03. ESTÉTICA CRT TECH-HORROR',
-            desc: 'Sumérgete en una atmósfera oscura de hardware de servidores noventeros, monitores parpadeantes de fósforo verde y ruido blanco digital de Vanguard Mainframes.',
+            title: 'Arriesgá o extraé.',
+            desc: 'Antes del jefe podés retirarte con tu progreso o jugártela por todo.',
+          },
+          {
+            title: 'Tech-horror noventero.',
+            desc: 'Monitores CRT, fósforo verde y synthwave original.',
           },
         ],
       },
-      osiLayers: {
-        titlePre: 'EL CONFLICTO: ',
-        titleHighlight: 'LAS CAPAS OSI',
-        mapPrompt: 'MAPA DEL MODELO OSI (V verticale descent)',
-        layers: [
-          {
-            tag: 'CAPA 7 (APLICACIÓN) • JEFATURA DIGITAL',
-            title: 'THE HYDRA BROWSER',
-            highlightText: 'FAT32 Scattergun',
-            desc: 'Un navegador monstruoso e invasivo. Si le cerrás una pestaña (cabeza), abre automáticamente dos más. Aquí consigues la escopeta pesada FAT32 Scattergun en la carpeta de descargas del sistema.',
-            isRed: true,
-          },
-          {
-            tag: 'CAPA 6 (PRESENTACIÓN) • LABERINTOS DE ENCRIPTACIÓN',
-            title: 'RSA-PIERCER GUN',
-            highlightText: 'Perforador RSA',
-            desc: 'Lugar de laberintos de encriptación de datos. Utiliza el emisor Perforador RSA para proyectar un haz de energía continua capaz de atravesar múltiples protecciones enemigas (reduce tu movilidad en un 40% durante la carga).',
-          },
-          {
-            tag: 'CAPA 5 (SESIÓN) • ACCESO DIAL-UP',
-            title: 'CAÑÓN DIAL-UP 56K',
-            highlightText: '56k',
-            desc: 'Zona de sincronización de transmisiones. El cañón de 56k dispara orbes de datos con inestabilidad de lag. El proyectil fluctúa erráticamente y genera un efecto de Stun masivo por "pérdida de paquetes" durante 2 segundos en el malware.',
-          },
-          {
-            tag: 'CAPA 4 (TRANSPORTE) • FLUJO DE FIBRA',
-            title: 'THE PACKET WYRM',
-            highlightText: 'Lanzador MTU',
-            desc: 'Un gusano gigante de fibra óptica que "nada" debajo de la pila de paquetes. Aquí disparas el Lanzador MTU, artillería pesada que rebota en los muros y genera una onda de choque devastadora que altera tu propia posición.',
-          },
-          {
-            tag: 'CAPA 1 (FÍSICA) • EL HOGAR DE SILICIO',
-            title: 'KERNEL PANIC',
-            highlightText: 'Cañón de Flujo Térmico',
-            desc: 'El núcleo y el hardware ardiendo. Enfrentarás a Kernel Panic, la anomalía final que simula pantallas azules y crasheos reales de hardware en tu interfaz. Debes usar el Cañón de Flujo Térmico para purgarlo antes de que el procesador se funda.',
-            isRed: true,
-          },
-        ],
+      dilemma: {
+        pre: 'Cada Glitch que absorbés te hace más poderoso. Y más corrupto.',
+        question:
+          '¿Vas a morir siendo un héroe... o vas a vivir lo suficiente para convertirte en el villano?',
       },
-      synergies: {
-        titlePre: 'SINERGIAS DE ',
-        titleHighlight: 'CÓDIGO (BUILDS)',
-        items: [
-          {
-            title: 'VAMPIRO ÍGNEO',
-            desc: 'Combina el Protocolo Vampiro con el rastro de fuego del Dash. Al quemar y herir a tus enemigos con fuego cian, robas vida de manera pasiva mientras sigues corriendo.',
-          },
-          {
-            title: 'ESCOPETA FRACTAL',
-            desc: 'Combina la Escopeta Rompe-MAC con el glitch de Fragmentación de Disco. Aumenta drásticamente la dispersión de perdigones cubriendo toda la pantalla isométrica de proyectiles.',
-          },
-          {
-            title: 'FRANCOTIRADOR FANTASMA',
-            desc: 'Combina el Rifle Traceroute de largo alcance con el señuelo holográfico del Dash. Deja un clon señuelo atrayendo disparos mientras cargas tu disparo perfecto a distancia.',
-          },
-        ],
+      locked: {
+        window: 'UNIDAD D:\\',
+        title: 'UNIDAD NO MONTADA — Acceso restringido',
+        text: 'Las capas más profundas del sistema: próximamente.',
+        detail: 'SECTORES CIFRADOS · LECTURA DENEGADA',
+        retry: 'Reintentar',
       },
       signup: {
-        title: 'PROTOCOLO DE ACCESO',
-        prompt1:
-          'Dejanos tu mail para registrarte en la próxima beta cerrada y darnos soporte durante el desarrollo.',
-        prompt2: 'Inyectando protocolo de registro en Vanguard Mainframes...',
-        namePlaceholder: 'NOMBRE COMPLETO',
-        emailPlaceholder: 'USUARIO@SECTOR.COM',
-        btnSubmit: 'Enviar Datos',
-        btnSuccess: 'Registrado',
-        msgSuccess: 'ACCESO CONCEDIDO. Has sido incluido en la lista de interesados.',
-        msgError: 'ERROR DE SISTEMA. Inténtalo de nuevo más tarde.',
+        window: 'REGISTRO.EXE',
+        title: 'Beta cerrada',
+        prompt: 'Dejá tu mail para anotarte en la próxima beta cerrada y apoyar el desarrollo.',
+        emailLabel: 'Tu email',
+        placeholder: 'usuario@sector.com',
+        submit: '> REGISTRAR USUARIO',
+        loading: 'Desencriptando entorno…',
+        success: 'Usuario registrado. Te avisamos cuando abra la beta.',
+        invalid: 'ERROR 0x0E: el mail no es válido. Revisalo y probá de nuevo.',
+        error: 'ERROR 0x1F: no pudimos conectar con el servidor. Probá de nuevo más tarde.',
       },
-      contact: {
-        title: 'CONTACTO DE AUDITORÍA',
-        role: 'Director / Game Design',
-        gdd: 'VERSIÓN GDD: 1.0 (Publicado: 12 Mayo 2026)',
+      credits: {
+        window: 'CREDITS.LOG',
+        title: 'Equipo y estudio',
+        command: '> leer CREDITS.LOG',
+        members: [
+          {
+            name: 'Bruno Aresu Barella',
+            role: 'Producción general, dirección creativa, game design, economía, personajes y narrativa.',
+          },
+          {
+            name: 'Maxi Gentili',
+            role: 'Community Manager.',
+          },
+          {
+            name: 'Azul Talavera',
+            role: 'Diseño de interfaces (UI/UX diegética), desarrollo web y QA.',
+          },
+          {
+            name: 'Francisco Merlini',
+            role: 'Tech lead, programación C# (Unity URP) y arquitectura de sistemas core.',
+          },
+          {
+            name: 'Valen Bongiorno',
+            role: 'Level design, arquitectura de niveles, programación de gameplay y conceptos.',
+          },
+          {
+            name: 'Lucas Segovia',
+            role: 'Dirección de arte, modelado 3D, animación, cel-shading y arte promocional.',
+          },
+          {
+            name: 'Nicolás Bugedo',
+            role: 'Diseño de sonido, audio diegético y banda sonora original.',
+          },
+        ],
+        studio: 'Un juego de ItsMeGames · Córdoba, Argentina',
+      },
+      footer: {
+        tagline: 'From Players to Creators',
+        location: 'Córdoba, Argentina',
+        contactLabel: 'Contacto',
+        followLabel: 'Seguinos',
+      },
+      bsod: {
+        title: 'KERNEL_KEEPER.SYS',
+        lines: [
+          'KERNEL_KEEPER.SYS dejó de responder. Código de detención: 0xC0FFEE.',
+          'Tranquilo: no rompiste nada. Es el equipo de ItsMeGames saludándote.',
+          'Gracias por bajar hasta acá. Las capas más profundas todavía se están compilando.',
+        ],
+        dismiss: 'Presioná cualquier tecla para volver al sistema _',
       },
     },
     switch: {

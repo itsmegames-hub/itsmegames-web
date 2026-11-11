@@ -1,8 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Joystick } from 'lucide-react';
 import { motion } from 'motion/react';
+import { KERNEL_KEEPER_PROTOTYPE_URL } from '@/lib/data/games';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import logoPerro from '@/public/brand/logo-perro.png';
 
@@ -44,6 +45,23 @@ export default function Hero() {
         >
           <span className="w-1.5 h-1.5 rounded-full bg-brand-red animate-ping" />
           {t.hero.badge}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+          className="mt-8"
+        >
+          <a
+            href={KERNEL_KEEPER_PROTOTYPE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 py-3 px-6 rounded-full bg-brand-green text-white font-fredoka font-bold text-sm tracking-wider uppercase shadow-[0_8px_20px_-6px_rgba(24,122,52,0.5)] hover:bg-brand-green/90 hover:-translate-y-0.5 transition-all duration-300"
+          >
+            <Joystick className="w-4 h-4" />
+            {t.hero.playPrototype}
+          </a>
         </motion.div>
       </motion.div>
 

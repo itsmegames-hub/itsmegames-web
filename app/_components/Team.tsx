@@ -101,10 +101,6 @@ function TeamCard({ member, index }: TeamCardProps) {
 export default function Team() {
   const { t } = useLanguage();
 
-  // Dividimos el array: los primeros 3 para la fila de arriba, el resto para abajo
-  const topRow = teamMembers.slice(0, 3);
-  const bottomRow = teamMembers.slice(3);
-
   return (
     <section className="relative w-full">
       <motion.div
@@ -121,25 +117,11 @@ export default function Team() {
         </p>
       </motion.div>
 
-      <div className="max-w-[1200px] mx-auto px-4 flex flex-col gap-8">
-        {/* --- FILA 1: 3 Personas (Centrado) --- */}
-        <div className="flex flex-wrap justify-center gap-8">
-          {topRow.map((member, index) => (
-            <div key={member.name} className="w-full sm:w-[300px]">
-              <TeamCard member={member} index={index} />
-            </div>
-          ))}
-        </div>
-
-        {/* --- FILA 2: 3 Personas (Centrado) --- */}
-        <div className="flex flex-wrap justify-center gap-8">
-          {bottomRow.map((member, index) => (
-            <div key={member.name} className="w-full sm:w-[300px]">
-              {/* Sumamos el index para que el delay de animación sea progresivo (2, 3, 4...) */}
-              <TeamCard member={member} index={index + 3} />
-            </div>
-          ))}
-        </div>
+      {/* Todos en una sola fila en desktop; en pantallas chicas se reparten en columnas */}
+      <div className="max-w-[1200px] mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6 lg:gap-4">
+        {teamMembers.map((member, index) => (
+          <TeamCard key={member.name} member={member} index={index} />
+        ))}
       </div>
     </section>
   );

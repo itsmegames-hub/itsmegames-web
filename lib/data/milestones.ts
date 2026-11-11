@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
-import { Gamepad2, Rocket, Tv } from 'lucide-react';
+import { Gamepad2, Joystick, Rocket, Tv } from 'lucide-react';
 
 export interface Milestone {
   year: string;
@@ -11,23 +11,28 @@ export interface Milestone {
 export const milestones: Milestone[] = [
   {
     year: '2020',
-    title: 'El Inicio',
+    title: 'El comienzo',
     description:
-      'Todo comenzó durante la pandemia. Un hobby, un canal de streaming para compartir nuestra pasión por los videojuegos.',
+      'Nace durante la pandemia como un pasatiempo compartido y un canal de streaming.',
     icon: Gamepad2,
   },
   {
     year: '2021',
-    title: 'Comunidad & Streaming',
-    description:
-      'El canal de Twitch itsmegames_ se convirtió en un punto de encuentro. La conexión con la audiencia nos inspiró a ir más allá.',
+    title: 'Comunidad y streaming',
+    description: 'El canal de Twitch itsmegames_ se vuelve punto de encuentro.',
     icon: Tv,
   },
   {
-    year: '2026+',
-    title: 'Evolución a Estudio',
+    year: '2026',
+    title: 'Nace el estudio',
     description:
-      'Descubrimos que nuestra verdadera pasión es crear. Nacimos como empresa de desarrollo de videojuegos, listos para dejar nuestra marca en la industria.',
+      'ItsMeGames se convierte en un estudio indie y arranca The Kernel Keeper.',
     icon: Rocket,
+  },
+  {
+    year: '2026',
+    title: 'Primer prototipo jugable',
+    description: 'La Capa 7 de The Kernel Keeper ya se puede jugar en el navegador.',
+    icon: Joystick,
   },
 ];

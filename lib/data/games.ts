@@ -1,29 +1,30 @@
-import type { StaticImageData } from 'next/image';
-import layer8Logo from '@/public/brand/layer8.png';
+/** Prototipo jugable (Capa 7) de The Kernel Keeper. */
+export const KERNEL_KEEPER_PROTOTYPE_URL = 'https://kernel-keeper-web.vercel.app/';
 
 export interface Game {
   id: number;
   title: string;
   status: string;
-  progress: number;
-  description: string;
+  stage: string;
+  tagline: string;
+  hook: string;
   color: string;
-  image: StaticImageData;
   tags: string[];
   url: string;
+  prototypeUrl?: string;
 }
 
 export const games: Game[] = [
   {
     id: 1,
-    title: 'LAYER 8',
+    title: 'THE KERNEL KEEPER',
     status: 'EN DESARROLLO',
-    progress: 35,
-    description:
-      'Un Twin-Stick RogueLite donde debes purgar el sistema de una amenaza desconocida.',
+    stage: 'Capa 7 jugable',
+    tagline: 'El sistema está podrido. Vos sos la purga.',
+    hook: 'Roguelite twin-stick táctico en un escritorio de los 90 convertido en campo de batalla.',
     color: 'from-cyan-500 to-blue-600',
-    image: layer8Logo,
-    tags: ['Action', 'RogueLite', 'Cyberpunk'],
-    url: '/layer8game',
+    tags: ['Roguelite', 'TwinStick', 'TechHorror'],
+    url: '/kernelkeepergame',
+    prototypeUrl: KERNEL_KEEPER_PROTOTYPE_URL,
   },
 ];

@@ -93,12 +93,6 @@ export default function Footer() {
               <span className="text-brand-green font-semibold">{t.footer.emailLabel}</span>
               bruno.aresubarella@itsmegames.com
             </a>
-            <a
-              href="tel:+5493512133660"
-              className="hover:text-brand-green transition-colors flex items-center gap-2"
-            >
-              <span className="text-brand-green font-semibold">{t.footer.telLabel}</span> +54 9 3512 13-3660
-            </a>
           </div>
         </motion.div>
       </div>

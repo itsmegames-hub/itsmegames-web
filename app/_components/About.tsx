@@ -12,8 +12,7 @@ interface MilestoneCardProps {
 function MilestoneCard({ milestone, index }: MilestoneCardProps) {
   const { t } = useLanguage();
   const Icon = milestone.icon;
-  const translation =
-    t.about.milestones.find((m) => m.year === milestone.year) || t.about.milestones[index];
+  const translation = t.about.milestones[index];
   const title = translation?.title || milestone.title;
   const description = translation?.description || milestone.description;
 
@@ -68,7 +67,7 @@ export default function About() {
 
       <div className="flex flex-col space-y-6 max-w-4xl mx-auto">
         {milestones.map((milestone, index) => (
-          <MilestoneCard key={milestone.year} milestone={milestone} index={index} />
+          <MilestoneCard key={`${milestone.year}-${index}`} milestone={milestone} index={index} />
         ))}
       </div>
     </section>

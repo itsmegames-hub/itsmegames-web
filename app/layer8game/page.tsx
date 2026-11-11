@@ -1,5 +1,6 @@
-import Layer8Landing from '@/app/layer8game/_components/Layer8Landing';
+import { permanentRedirect } from 'next/navigation';
 
-export default function Layer8GamePage() {
-  return <Layer8Landing />;
+// Nombre anterior del juego: la URL vieja redirige a la nueva.
+export default function Layer8GameRedirect() {
+  permanentRedirect('/kernelkeepergame');
 }
