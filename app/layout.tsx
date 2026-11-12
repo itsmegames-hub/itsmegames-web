@@ -66,13 +66,11 @@ export const metadata: Metadata = {
     title: 'ItsMeGames | From Players to Creators',
     description:
       'Join the family. We are creators, gamers and developers. Discover our projects and meet the people behind them.',
-    images: '/embebido2.png',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'ItsMeGames | From Players to Creators',
     description: 'Join the family. We are creators, gamers and developers.',
-    images: '/embebido2.png',
   },
   other: {
     'twitter:url': 'https://www.itsmegames.com/',
