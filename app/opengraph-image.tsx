@@ -2,7 +2,7 @@ import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { ImageResponse } from 'next/og';
 
-export const alt = 'ItsMeGames — From Players to Creators';
+export const alt = 'ItsMeGames';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -38,17 +38,6 @@ export default async function OpengraphImage() {
             alt=""
             style={{ marginLeft: -40, marginTop: -165 }}
           />
-        </div>
-        <div
-          style={{
-            display: 'flex',
-            marginTop: 4,
-            fontSize: 40,
-            fontWeight: 700,
-            color: '#222222',
-          }}
-        >
-          From Players to Creators
         </div>
       </div>
     </div>,
