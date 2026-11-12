@@ -17,3 +17,4 @@ Copiá `.env.example` a `.env.local` y configurá:
 
 - `NEXT_PUBLIC_CLARITY_ID`: identificador público opcional de Microsoft Clarity.
 - `LAYER8_SIGNUP_URL`: URL privada del Google Apps Script que recibe las inscripciones de Layer 8.
+# itsmegames-web
