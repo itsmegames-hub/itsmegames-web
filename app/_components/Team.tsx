@@ -22,7 +22,7 @@ function TeamCard({ member, index }: TeamCardProps) {
 
   return (
     <div
-      className="relative h-[280px] w-full max-w-[300px] perspective-1000 cursor-pointer group mx-auto"
+      className="relative h-[300px] w-full max-w-[300px] perspective-1000 cursor-pointer group mx-auto"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => setIsFlipped(!isFlipped)}
@@ -66,12 +66,12 @@ function TeamCard({ member, index }: TeamCardProps) {
               {member.name}
             </h3>
             {role && (
-              <p className="text-xs lg:text-sm text-brand-green font-satoshi font-semibold">
+              <p className="text-xs lg:text-sm leading-snug text-brand-green font-satoshi font-semibold">
                 {role}
               </p>
             )}
 
-            <div className="absolute bottom-3 text-[10px] text-brand-green/80 font-fredoka font-semibold tracking-wider animate-pulse">
+            <div className="mt-auto pt-2 text-[10px] text-brand-green/80 font-fredoka font-semibold tracking-wider animate-pulse">
               {t.team.viewInfo}
             </div>
           </div>
