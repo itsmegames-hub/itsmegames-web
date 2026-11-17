@@ -76,7 +76,6 @@ export interface Translations {
   footer: {
     founderRole: string;
     emailLabel: string;
-    portfolioLabel: string;
   };
   kernelKeeper: {
     boot: { lines: string[]; skip: string };
@@ -156,7 +155,7 @@ export interface Translations {
       location: string;
       contactLabel: string;
       followLabel: string;
-      portfolioLabel: string;
+      createdBy: string;
     };
     bsod: { title: string; lines: string[]; dismiss: string };
   };

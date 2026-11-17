@@ -2,7 +2,16 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { Crosshair, DoorOpen, Globe, Instagram, Mail, MonitorDot, Twitch, Zap } from 'lucide-react';
+import {
+  ArrowUpRight,
+  Crosshair,
+  DoorOpen,
+  Instagram,
+  Mail,
+  MonitorDot,
+  Twitch,
+  Zap,
+} from 'lucide-react';
 import RichText from '@/app/kernelkeepergame/_components/RichText';
 import { DocIcon, LockedDriveIcon, UsbIcon } from '@/app/kernelkeepergame/_components/PixelIcons';
 import { Window } from '@/app/kernelkeepergame/_components/Window';
@@ -204,6 +213,21 @@ export function GameFooter() {
             <p className="text-[var(--dim)]">
               <em>{footer.tagline}</em> · {footer.location}
             </p>
+            <p className="text-[var(--dim)]">
+              {footer.createdBy}{' '}
+              <a
+                href={PORTFOLIO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-0.5 text-[var(--ink)] underline decoration-[var(--cyan)]/50 underline-offset-4 hover:text-[var(--cyan)] hover:decoration-[var(--cyan)] transition-colors"
+              >
+                Bruno Aresu Barella
+                <ArrowUpRight
+                  className="w-3.5 h-3.5 text-[var(--cyan)] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  aria-hidden="true"
+                />
+              </a>
+            </p>
           </div>
         </div>
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-6">
@@ -229,10 +253,6 @@ export function GameFooter() {
           <a href={`mailto:${CONTACT_EMAIL}`} className={link}>
             <Mail className="w-4 h-4 shrink-0 text-[var(--cyan)]" aria-hidden="true" />
             <span className="text-[var(--dim)]">{footer.contactLabel}:</span> {CONTACT_EMAIL}
-          </a>
-          <a href={PORTFOLIO_URL} target="_blank" rel="noopener noreferrer" className={link}>
-            <Globe className="w-4 h-4 shrink-0 text-[var(--cyan)]" aria-hidden="true" />
-            {footer.portfolioLabel}
           </a>
         </div>
       </div>

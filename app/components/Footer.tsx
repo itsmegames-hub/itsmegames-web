@@ -1,10 +1,12 @@
 'use client';
 
 import Image from 'next/image';
-import { Instagram } from 'lucide-react';
+import { ArrowUpRight, Instagram } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import logoPerro from '@/public/brand/logo-perro.png';
+
+const PORTFOLIO_URL = 'https://brunoaresubarella.itsmegames.com/';
 
 interface SocialLink {
   icon: typeof Instagram;
@@ -83,7 +85,19 @@ export default function Footer() {
           className="mt-12 pt-8 border-t border-brand-green/10 flex flex-col items-center text-center space-y-2"
         >
           <p className="text-[10px] font-fredoka font-bold text-gray-500 tracking-wider uppercase">
-            BRUNO ARESU BARELLA - <span className="text-brand-green">{t.footer.founderRole}</span>
+            <a
+              href={PORTFOLIO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-0.5 underline decoration-brand-green/40 underline-offset-4 hover:text-brand-green hover:decoration-brand-green transition-colors"
+            >
+              BRUNO ARESU BARELLA
+              <ArrowUpRight
+                className="w-3 h-3 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                aria-hidden="true"
+              />
+            </a>{' '}
+            - <span className="text-brand-green">{t.footer.founderRole}</span>
           </p>
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-[10px] font-satoshi text-gray-600">
             <a
@@ -92,15 +106,6 @@ export default function Footer() {
             >
               <span className="text-brand-green font-semibold">{t.footer.emailLabel}</span>
               bruno.aresubarella@itsmegames.com
-            </a>
-            <a
-              href="https://brunoaresubarella.itsmegames.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-brand-green transition-colors flex items-center gap-2"
-            >
-              <span className="text-brand-green font-semibold">{t.footer.portfolioLabel}</span>
-              brunoaresubarella.itsmegames.com
             </a>
           </div>
         </motion.div>
