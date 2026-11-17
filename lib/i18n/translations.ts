@@ -305,7 +305,7 @@ export const translations: Record<Language, Translations> = {
             role: 'Interface design (diegetic UI/UX), web development and QA.',
           },
           {
-            name: 'Francisco Merlini',
+            name: 'Fran Merlini',
             role: 'Tech lead, C# programming (Unity URP) and core systems architecture.',
           },
           {
@@ -317,7 +317,7 @@ export const translations: Record<Language, Translations> = {
             role: 'Art direction, 3D modeling, animation, cel-shading and promotional art.',
           },
           {
-            name: 'Nicolás Bugedo',
+            name: 'Nico Bugedo',
             role: 'Sound design, diegetic audio and original soundtrack.',
           },
         ],
@@ -657,7 +657,7 @@ export const translations: Record<Language, Translations> = {
             role: 'Diseño de interfaces (UI/UX diegética), desarrollo web y QA.',
           },
           {
-            name: 'Francisco Merlini',
+            name: 'Fran Merlini',
             role: 'Tech lead, programación C# (Unity URP) y arquitectura de sistemas core.',
           },
           {
@@ -669,7 +669,7 @@ export const translations: Record<Language, Translations> = {
             role: 'Dirección de arte, modelado 3D, animación, cel-shading y arte promocional.',
           },
           {
-            name: 'Nicolás Bugedo',
+            name: 'Nico Bugedo',
             role: 'Diseño de sonido, audio diegético y banda sonora original.',
           },
         ],
