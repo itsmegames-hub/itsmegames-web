@@ -93,6 +93,15 @@ export default function Footer() {
               <span className="text-brand-green font-semibold">{t.footer.emailLabel}</span>
               bruno.aresubarella@itsmegames.com
             </a>
+            <a
+              href="https://brunoaresubarella.itsmegames.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-brand-green transition-colors flex items-center gap-2"
+            >
+              <span className="text-brand-green font-semibold">{t.footer.portfolioLabel}</span>
+              brunoaresubarella.itsmegames.com
+            </a>
           </div>
         </motion.div>
       </div>

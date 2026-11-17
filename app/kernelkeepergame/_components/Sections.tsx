@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { Crosshair, DoorOpen, Instagram, Mail, MonitorDot, Twitch, Zap } from 'lucide-react';
+import { Crosshair, DoorOpen, Globe, Instagram, Mail, MonitorDot, Twitch, Zap } from 'lucide-react';
 import RichText from '@/app/kernelkeepergame/_components/RichText';
 import { DocIcon, LockedDriveIcon, UsbIcon } from '@/app/kernelkeepergame/_components/PixelIcons';
 import { Window } from '@/app/kernelkeepergame/_components/Window';
@@ -10,6 +10,7 @@ import { useLanguage } from '@/lib/i18n/LanguageContext';
 import logoPerro from '@/public/brand/logo-perro.png';
 
 const CONTACT_EMAIL = 'bruno.aresubarella@itsmegames.com';
+const PORTFOLIO_URL = 'https://brunoaresubarella.itsmegames.com/';
 
 /* ---------- El planteo: registro recuperado ---------- */
 
@@ -228,6 +229,10 @@ export function GameFooter() {
           <a href={`mailto:${CONTACT_EMAIL}`} className={link}>
             <Mail className="w-4 h-4 shrink-0 text-[var(--cyan)]" aria-hidden="true" />
             <span className="text-[var(--dim)]">{footer.contactLabel}:</span> {CONTACT_EMAIL}
+          </a>
+          <a href={PORTFOLIO_URL} target="_blank" rel="noopener noreferrer" className={link}>
+            <Globe className="w-4 h-4 shrink-0 text-[var(--cyan)]" aria-hidden="true" />
+            {footer.portfolioLabel}
           </a>
         </div>
       </div>

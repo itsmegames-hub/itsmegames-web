@@ -135,6 +135,7 @@ export const translations: Record<Language, Translations> = {
     footer: {
       founderRole: 'FOUNDER',
       emailLabel: 'EMAIL:',
+      portfolioLabel: 'PORTFOLIO:',
     },
     kernelKeeper: {
       boot: {
@@ -328,6 +329,7 @@ export const translations: Record<Language, Translations> = {
         location: 'Córdoba, Argentina',
         contactLabel: 'Contact',
         followLabel: 'Follow us',
+        portfolioLabel: 'Portfolio',
       },
       bsod: {
         title: 'KERNEL_KEEPER.SYS',
@@ -485,6 +487,7 @@ export const translations: Record<Language, Translations> = {
     footer: {
       founderRole: 'FOUNDER',
       emailLabel: 'EMAIL:',
+      portfolioLabel: 'PORTFOLIO:',
     },
     kernelKeeper: {
       boot: {
@@ -680,6 +683,7 @@ export const translations: Record<Language, Translations> = {
         location: 'Córdoba, Argentina',
         contactLabel: 'Contacto',
         followLabel: 'Seguinos',
+        portfolioLabel: 'Portfolio',
       },
       bsod: {
         title: 'KERNEL_KEEPER.SYS',
