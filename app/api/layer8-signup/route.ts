@@ -1,8 +1,12 @@
 interface SignupPayload {
   name?: unknown;
   email?: unknown;
+  feedback?: unknown;
   timestamp?: unknown;
 }
+
+const FEEDBACK_MAX_LENGTH = 2000;
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 export async function POST(request: Request) {
   let rawPayload: unknown;
@@ -21,15 +25,26 @@ export async function POST(request: Request) {
 
   const name = typeof payload.name === 'string' ? payload.name.trim() : '';
   const email = typeof payload.email === 'string' ? payload.email.trim() : '';
+  const feedback =
+    typeof payload.feedback === 'string'
+      ? payload.feedback.trim().slice(0, FEEDBACK_MAX_LENGTH)
+      : '';
 
-  if (!email) {
-    return Response.json({ error: 'Email is required.' }, { status: 400 });
+  // Una inscripción necesita mail; un feedback puede llegar sin mail.
+  if (!email && !feedback) {
+    return Response.json({ error: 'Email or feedback is required.' }, { status: 400 });
+  }
+
+  if (email && !EMAIL_PATTERN.test(email)) {
+    return Response.json({ error: 'Email is not valid.' }, { status: 400 });
   }
 
   const signupUrl = process.env.LAYER8_SIGNUP_URL;
 
   if (!signupUrl) {
-    console.error('LAYER8_SIGNUP_URL is not configured. Kernel Keeper signups cannot be forwarded.');
+    console.error(
+      'LAYER8_SIGNUP_URL is not configured. Kernel Keeper signups cannot be forwarded.',
+    );
     return Response.json({ error: 'Signup service is unavailable.' }, { status: 500 });
   }
 
@@ -44,7 +59,7 @@ export async function POST(request: Request) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name, email, timestamp }),
+      body: JSON.stringify({ name, email, feedback, timestamp }),
     });
 
     if (!response.ok) {

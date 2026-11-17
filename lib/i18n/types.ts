@@ -128,6 +128,21 @@ export interface Translations {
       invalid: string;
       error: string;
     };
+    feedback: {
+      window: string;
+      title: string;
+      prompt: string;
+      messageLabel: string;
+      messagePlaceholder: string;
+      emailLabel: string;
+      emailPlaceholder: string;
+      submit: string;
+      loading: string;
+      success: string;
+      empty: string;
+      invalidEmail: string;
+      error: string;
+    };
     credits: {
       window: string;
       title: string;

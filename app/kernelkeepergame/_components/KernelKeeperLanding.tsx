@@ -12,6 +12,7 @@ import {
   LockedDrive,
   Story,
 } from '@/app/kernelkeepergame/_components/Sections';
+import FeedbackForm from '@/app/kernelkeepergame/_components/FeedbackForm';
 import SignupForm from '@/app/kernelkeepergame/_components/SignupForm';
 import TopBar from '@/app/kernelkeepergame/_components/TopBar';
 import { Taskbar, WindowProvider } from '@/app/kernelkeepergame/_components/Window';
@@ -82,6 +83,7 @@ export default function KernelKeeperLanding({ fontClassName }: { fontClassName: 
           <Dilemma />
           <LockedDrive onRetry={() => setBsodOpen(true)} />
           <SignupForm />
+          <FeedbackForm />
           <Credits />
         </main>
 
